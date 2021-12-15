@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Найди пару</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <script defer src="./js/pair-game.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="start-wind">
+      <div class="start-wind-content">
+        <h1 class="start-wind-heading">
+          Игра 'Найди пару'
+        </h1>
+        <img src="./img/modal-bg.png" alt="#" class="start-wind-bg">
+        <form class="start-wind-form">
+          <label class="input-label" for="number-input">Кол-во карточек по вертикали/горизонтали:
+            <input class="number-input input" id="number-input" type="number" placeholder="4" min="2" max="10" step="2">
+           </label>
+          <button class="start-button btn">
+            Начать игру
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="game">
+      <div class="game-container"></div>
+      <div class="timer-container">
+        <div class="timer-description">
+          Осталось секунд:
+        </div>
+        <div class="timer-block"></div>
+      </div>
+      <div class="restart-container">
+        <label class="input-label restart">Кол-во карточек по вертикали/горизонтали:
+          <input class="restart-input input" type="number" placeholder="4" min="2" max="10" step="2">
+        </label>
+        <button class="restart-button btn">
+          Сыграть ещё раз!
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

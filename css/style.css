@@ -1,0 +1,428 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  font-family: sans-serif;
+  background-color: #222;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100vh;
+  margin: auto;
+  position: relative;
+}
+
+.btn {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 5px 5px 20px #555;
+  background-color: #fab843;
+  font-weight: 600;
+  color: #444;
+  cursor: pointer;
+  transition: background-color .3s ease-in-out, color .3s ease-in-out, transform .2s;
+}
+
+.input {
+  padding: 10px;
+  width: 68px;
+  font-size: 30px;
+  border: none;
+  border-radius: 10px;
+}
+
+.start-wind {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+  padding: 60px;
+  height: 600px;
+  width: 900px;
+  border-radius: 40px;
+  background-color: #d8d8d8;
+}
+
+.start-wind-close {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease-in, visibility 1s ease-in;
+}
+
+.start-wind-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.start-wind-heading {
+  margin-bottom: 10px;
+  font-size: 80px;
+  color: #222;
+}
+
+.start-wind-bg {
+  width: 260px;
+}
+
+.start-wind-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-label {
+  margin-bottom: 30px;
+  font-size: 30px;
+  color: #333;
+}
+
+.number-input::placeholder {
+  color: #c8c1bb;
+}
+
+.start-button {
+  padding: 25px 30px;
+  font-size: 40px;
+}
+
+.start-button:hover,
+.restart-button:hover {
+  background-color: #fab843d1;
+  color: #555;
+}
+
+.start-button:active,
+.restart-button:active {
+  transform: scale(0.97);
+}
+
+.game-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  width: 800px;
+  height: 800px;
+}
+
+.game-container-1024 {
+  width: 700px;
+  height: 700px;
+}
+
+.game-container-768 {
+  width: 560px;
+  height: 560px;
+}
+
+.game-container-576 {
+  width: 465px;
+  height: 465px;
+}
+
+.game-container-475 {
+  width: 365px;
+  height: 365px;
+}
+
+.game-container-375 {
+  width: 310px;
+  height: 310px;
+}
+
+.card {
+  position: relative;
+  margin: 5px;
+  width: calc(25% - 10px);
+  height: calc(25% - 10px);
+  border-radius: 10px;
+  background-color: #ddd;
+  cursor: pointer;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform .5s;
+}
+
+.card.card2 {
+  width: calc(50% - 10px);
+  height: calc(50% - 10px);
+}
+
+.card.card6 {
+  width: calc(16% - 10px);
+  height: calc(16% - 10px);
+}
+
+.card.card8 {
+  width: calc(12% - 10px);
+  height: calc(12% - 10px);
+}
+
+.card.card10 {
+  width: calc(10% - 10px);
+  height: calc(10% - 10px);
+}
+
+.card:active {
+  transform: scale(0.97);
+  transition: transform .2s;
+}
+
+.card.flip {
+  transform: rotateY(180deg);
+}
+
+.front-img,
+.back-img {
+  position: absolute;
+  padding: 5px;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.front-img {
+  transform: rotateY(180deg);
+}
+
+.game {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+}
+
+.timer-container {
+  position: absolute;
+  top: 87%;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.timer-container.visible-timer {
+  opacity: 1;
+  visibility: visible;
+}
+
+.timer-description {
+  margin-bottom: 5px;
+  font-size: 30px;
+  color: #999;
+}
+
+.timer-block {
+  padding: 5px;
+  font-size: 30px;
+  border-radius: 5px;
+  color: #444;
+  background-color: #d8d8d8;
+}
+
+.restart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.restart-container.visible {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 1s ease-in, visibility 1s ease-in;
+}
+
+.input-label.restart {
+  margin-bottom: 10px;
+  color: #888;
+}
+
+.restart-button {
+  padding: 20px 25px;
+  font-size: 30px;
+}
+
+@media (max-width: 1024px) {
+  .start-wind {
+    padding: 30px;
+    height: 450px;
+    width: 675px;
+  }
+
+  .start-wind-heading {
+    font-size: 60px;
+  }
+
+  .start-wind-bg {
+    width: 180px;
+  }
+
+  .input-label {
+    margin-bottom: 20px;
+    padding-top: 10px;
+    font-size: 22px;
+  }
+
+  .input {
+    padding: 10px;
+    width: 50px;
+    font-size: 20px;
+  }
+
+  .start-button {
+    padding: 20px 25px;
+    font-size: 35px;
+  }
+
+  .timer-container {
+    top: 83%;
+  }
+
+  .timer-description,
+  .timer-block {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .start-wind {
+    padding: 25px;
+    height: 350px;
+    width: 530px;
+  }
+
+  .start-wind-heading {
+    font-size: 50px;
+  }
+
+  .start-wind-bg {
+    width: 150px;
+  }
+
+  .input-label {
+    margin-bottom: 10px;
+    padding-top: 0;
+    font-size: 18px;
+  }
+
+  .start-button {
+    padding: 15px 20px;
+    font-size: 25px;
+  }
+
+  .restart-button {
+    padding: 15px 20px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .start-wind {
+    padding: 15px;
+    height: 350px;
+    width: 410px;
+    border-radius: 30px;
+  }
+
+  .start-wind-heading {
+    margin-bottom: 0;
+    font-size: 40px;
+  }
+
+  .start-wind-bg {
+    width: 150px;
+  }
+
+  .input-label {
+    margin-bottom: 20px;
+    padding-top: 5px;
+    font-size: 20px;
+  }
+
+  .input {
+    padding: 10px;
+    width: 50px;
+    font-size: 20px;
+  }
+
+  .input-label.restart {
+    padding-top: 0;
+    font-size: 15px;
+  }
+
+  .timer-container {
+    top: 80%;
+  }
+
+  .timer-description,
+  .timer-block {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 475px) {
+  .start-wind {
+    width: 350px;
+  }
+
+  .start-wind-heading {
+    font-size: 35px;
+  }
+}
+
+@media (max-width: 375px) {
+  .start-wind {
+    height: 295px;
+    width: 295px;
+  }
+
+  .start-wind-heading {
+    margin-bottom: 10px;
+    font-size: 30px;
+  }
+
+  .start-wind-bg {
+    width: 120px;
+  }
+
+  .input-label {
+    margin-bottom: 15px;
+    font-size: 16px;
+  }
+
+  .input {
+    padding: 5px;
+    width: 40px;
+    font-size: 16px;
+  }
+
+  .start-button,
+  .restart-button {
+    padding: 15px 20px;
+    font-size: 18px;
+  }
+
+  .input-label.restart {
+    font-size: 12px;
+  }
+
+  .timer-description,
+  .timer-block {
+    font-size: 18px;
+  }
+}
